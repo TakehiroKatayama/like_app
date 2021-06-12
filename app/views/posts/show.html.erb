@@ -4,11 +4,9 @@
 <p>【作成日時】 <%= l @post.created_at %></p>
 <p>
   <% if @post.liked_by?(current_user) %>
-    <%# 「いいね！」済み %>
-    ★
+    <%= render "like", post: @post %>
   <% else %>
-    <%# 「いいね」していない %>
-    ☆
+    <%= render "dislike", post: @post %>
   <% end %>
 </p>
 <% if current_user.id == @post.user_id %>
